@@ -4,7 +4,7 @@
 # Project Manager
 
 ## Funcionalidades
-- Gerenciar tarefas em diferentes status (To Do, In Progress, Done)
+- Gerenciar tarefas em diferentes status (To Do, In Progress, Done), Atualizando tanto a Api no back quanto a visualização no front
 - Interface de usuário em estilo Kanban
 
 ## Tecnologias Utilizadas
