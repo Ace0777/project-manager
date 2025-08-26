@@ -1,6 +1,7 @@
 package com.ace.service;
 
 import com.ace.entity.Project;
+import com.ace.enums.Status;
 import com.ace.excpetion.ProjectNotFoudException;
 import jakarta.enterprise.context.ApplicationScoped;
 
@@ -37,5 +38,15 @@ public class ProjectService {
     public void deleteById(UUID projectId) {
         var project = findById(projectId);
         Project.deleteById(project.id);
+    }
+
+    public Object moveProject(UUID projectId, String newStatus) {
+        var response = findById(projectId);
+
+        response.status = Status.valueOf(newStatus.toUpperCase());
+
+        Project.persist(response);
+
+        return response;
     }
 }

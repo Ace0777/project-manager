@@ -1,6 +1,7 @@
 package com.ace.entity;
 
 
+import com.ace.enums.Status;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.*;
 
@@ -18,7 +19,8 @@ public class Project extends PanacheEntityBase {
     public String description;
     @ElementCollection
     public List<String> techStack;
-    public String status;
+    @Enumerated(EnumType.STRING)
+    public Status status;
     public LocalDateTime createdAt;
     public LocalDateTime dueDate;
 

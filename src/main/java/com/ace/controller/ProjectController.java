@@ -45,12 +45,20 @@ public class ProjectController {
     public Response findById(@PathParam("id") UUID projectId){
         return Response.ok(service.findById(projectId)).build();
     }
+
     @DELETE
     @Path("/{id}")
     @Transactional
     public Response deleteById(@PathParam("id") UUID projectId){
       service.deleteById(projectId);
       return Response.noContent().build();
+    }
+
+    @PUT
+    @Path("/{id}/move")
+    @Transactional
+    public Response moveProject(@PathParam("id") UUID projectId, @QueryParam("status") String newStatus){
+        return Response.ok(service.moveProject(projectId,newStatus)).build();
     }
 
 
